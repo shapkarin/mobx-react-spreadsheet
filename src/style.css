@@ -1,0 +1,57 @@
+.Table {
+  border-collapse: collapse;
+}
+
+.Table img {
+  width: 15px;
+}
+
+.Table_Cell {
+  position: relative;
+  min-width: 60px;
+  height: 27px;
+  padding: 4px 3px;
+  margin: 0;
+  box-sizing: border-box;
+  border: 1px solid #cacaca;
+  font-size: 14px;
+  font-family: Arial;
+}
+
+.Table_Cell__bid,
+.Table_Cell__ask {
+  color: #7ea5ff;
+}
+
+.Row_red .Table_Cell__bid,
+.Row_red .Table_Cell__ask {
+  color: #fe7284;
+}
+
+.Table_Cell__bid_lp,
+.Table_Cell__ask_lp,
+.Table_Cell__spread {
+  text-align: center;
+}
+
+.Table_Cell__removeRow {
+  display: none;
+  cursor: pointer;
+}
+
+.Table_Row:hover .Table_Cell__removeRow {
+  display: block;
+}
+
+.Table_Input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 0;
+  height: 100%;
+  width: 100%;
+  border-radius: 0;
+  border: none;
+  padding: 10px;
+  box-sizing: border-box;
+}
