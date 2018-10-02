@@ -27,7 +27,7 @@ export default class Table extends React.Component {
             options={options}
             removeRow={store.removeRow}
           />
-        )}
+        ))}
         </tbody>
       </table>
     );
