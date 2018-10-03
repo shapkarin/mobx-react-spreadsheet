@@ -11,17 +11,15 @@ export default class Row extends React.Component {
   }
 
   determineDisplay = (value, field) => {
-    let result = "";
     const index = this.fields.indexOf(field);
 
     if (index !== -1) {
       if (value) {
-        result = <img src={this.icons[index].image} />;
+        return <img src={this.icons[index].image} />;
       }
     } else {
-      result = value;
+      return value;
     }
-    return result;
   };
 
   editCell = (value, field) => {
