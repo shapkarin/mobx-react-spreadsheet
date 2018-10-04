@@ -10,7 +10,6 @@ export default class Cell extends React.Component {
 
   shouldComponentUpdate(nextProps, nextState) {
     if (
-      nextState.value !== this.state.value ||
       nextState.editing !== this.state.editing ||
       nextProps.value !== this.props.value
     ) {
