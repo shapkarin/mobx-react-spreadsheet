@@ -4,8 +4,6 @@ export default class Cell extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      /*value for <input/> changes... */
-      value: props.value,
       editing: false
     };
   }
@@ -23,7 +21,7 @@ export default class Cell extends React.Component {
   }
 
   onChange = e => {
-    this.setState({ value: e.target.value });
+    this.props.editCell(e.target.value, this.props.field);
   };
 
   onKeyPressOnInput = e => {
@@ -61,7 +59,7 @@ export default class Cell extends React.Component {
             type="text"
             onBlur={this.onBlur}
             onKeyPress={this.onKeyPressOnInput}
-            value={this.state.value}
+            value={value}
             onChange={this.onChange}
             autoFocus
           />
