@@ -1,14 +1,15 @@
-import React from "react";
+import React from 'react';
+import { CellProps, CellState } from './types';
 
-export default class Cell extends React.Component {
-  constructor(props) {
+export default class Cell extends React.Component<CellProps, CellState> {
+  constructor(props: CellProps) {
     super(props);
     this.state = {
       editing: false
     };
   }
 
-  shouldComponentUpdate(nextProps, nextState) {
+  shouldComponentUpdate(nextProps: CellProps, nextState: CellState) {
     if (
       nextState.editing !== this.state.editing ||
       nextProps.value !== this.props.value
@@ -21,22 +22,22 @@ export default class Cell extends React.Component {
 
   onChange = e => {
     this.props.editCell(e.target.value, this.props.field);
-  };
+  }
 
   onKeyPressOnInput = e => {
-    if (e.key === "Enter") {
+    if (e.key === 'Enter') {
       this.setNewValue(e.target.value, this.props.field);
     }
-  };
+  }
 
   onBlur = e => {
     this.setNewValue(e.target.value, this.props.field);
-  };
+  }
 
   setNewValue = (value, field) => {
     this.props.editCell(value, field);
     this.setState({ editing: false });
-  };
+  }
 
   onDoubleClick = (e, field) => {
     if (this.props.booleanFields.indexOf(field) !== -1) {
@@ -44,13 +45,14 @@ export default class Cell extends React.Component {
       return;
     }
     this.setState({ editing: true });
-  };
+  }
 
   render() {
     const { editing } = this.state;
     const { field, value } = this.props;
 
     if (editing) {
+      // TODO: <TD>childern</TD>
       return (
         <td className={`Table_Cell Table_Cell__${field}`}>
           <input
@@ -60,7 +62,7 @@ export default class Cell extends React.Component {
             onKeyPress={this.onKeyPressOnInput}
             value={value}
             onChange={this.onChange}
-            autoFocus
+            autoFocus={true}
           />
         </td>
       );

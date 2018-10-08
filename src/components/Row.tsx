@@ -1,10 +1,14 @@
-import React from "react";
-import Cell from "./Cell";
-import { observer } from "mobx-react";
+import React from 'react';
+import Cell from './Cell';
+import { observer } from 'mobx-react';
+import { RowProps, Icon } from './types';
 
 @observer
-export default class Row extends React.Component {
-  constructor(props) {
+export default class Row extends React.Component<RowProps> {
+  icons: Icon[];
+  fields: string[];
+
+  constructor(props: RowProps) {
     super(props);
     this.icons = this.props.options.icons;
     this.fields = this.icons.map(item => item.field);
@@ -20,24 +24,22 @@ export default class Row extends React.Component {
     } else {
       return value;
     }
-  };
+  }
 
   editCell = (value, field) => {
     this.props.rowData[field] = value;
-  };
+  }
 
   cells = () => {
-    const result = [];
-    let value = "";
+    const result: JSX.Element[] = [];
+    let value: string = '';
 
     for (let key in this.props.rowData) {
       // not reusable
-      if (key !== "_red") {
+      if (key !== '_red') {
         value = this.determineDisplay(this.props.rowData[key], key);
         result.push(
           <Cell
-            onChangedValue={this.props.handleChangedCell}
-            updateCells={this.props.updateCells}
             editCell={this.editCell}
             value={value}
             field={key}
@@ -55,7 +57,7 @@ export default class Row extends React.Component {
       </td>
     );
     return result;
-  };
+  }
 
   render() {
     return (

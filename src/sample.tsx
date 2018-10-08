@@ -1,10 +1,10 @@
-import random from "lodash.random";
+import random from 'lodash.random';
 
 const randomName = () => {
   return Math.random()
     .toString(36)
     .substring(7)
-    .replace(/\d/g, "")
+    .replace(/\d/g, '')
     .toUpperCase();
 };
 export default function() {
