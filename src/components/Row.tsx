@@ -48,6 +48,8 @@ export default class Row extends React.Component<RowProps> {
         );
       }
     }
+
+    // className is not reusable 
     result.push(
       <td
         className="Table_Cell Table_Cell__removeRow"

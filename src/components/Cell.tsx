@@ -1,6 +1,15 @@
 import React from 'react';
 import { CellProps, CellState } from './types';
 
+// const TD = ({children, onDoubleClick, field}) => (
+//   <td
+//     className={`Table_Cell Table_Cell__${field}`}
+//     {...onDoubleClick}
+//   >
+//     {children}
+//   </td>
+// );
+
 export default class Cell extends React.Component<CellProps, CellState> {
   constructor(props: CellProps) {
     super(props);
