@@ -26,13 +26,15 @@ export default class Row extends React.Component<RowProps> {
     }
   }
 
-  editCell = (value, field) => {
+  editCell = (value: string, field: string): void => {
     this.props.rowData[field] = value;
   }
 
   cells = () => {
     const result: JSX.Element[] = [];
     let value: string = '';
+    const { className } = this.props.options;
+    //console.log(className);
 
     for (let key in this.props.rowData) {
       // not reusable
@@ -44,15 +46,16 @@ export default class Row extends React.Component<RowProps> {
             value={value}
             field={key}
             booleanFields={this.fields}
+            {...className}
           />
         );
       }
     }
 
-    // className is not reusable 
+    // className is not reusable
     result.push(
       <td
-        className="Table_Cell Table_Cell__removeRow"
+        className={`${className}_Cell Table_Cell__removeRow`}
         onClick={() => this.props.removeRow(this.props.id)}
       >
         delete

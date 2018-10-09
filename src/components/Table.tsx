@@ -10,11 +10,11 @@ export default class Table extends React.Component<TableProps> {
     const { store, options } = this.props;
 
     return (
-      <table className="Table">
+      <table className={options.className}>
         <thead>
           <tr>
           {store.columns.map((item) => (
-              <th className="Table_Cell">{item.header}</th>
+              <th className={`${options.className}_Cell`}>{item.header}</th>
           ))}
           </tr>
         </thead>
@@ -28,8 +28,8 @@ export default class Table extends React.Component<TableProps> {
             key={idx}
             id={idx}
             className={item._red ? 'Row_red' : ''}
-            options={options}
             removeRow={store.removeRow}
+            {...options}
           />
         ))}
         </tbody>

@@ -58,14 +58,13 @@ export default class Cell extends React.Component<CellProps, CellState> {
 
   render() {
     const { editing } = this.state;
-    const { field, value } = this.props;
+    const { field, value, className } = this.props;
 
     if (editing) {
-      // TODO: <TD>childern</TD>
       return (
-        <td className={`Table_Cell Table_Cell__${field}`}>
+        <td className={`${className}_Cell ${className}_Cell__${field}`}>
           <input
-            className="Table_Input"
+            className={`${className}_Input`}
             type="text"
             onBlur={this.onBlur}
             onKeyPress={this.onKeyPressOnInput}
@@ -79,7 +78,7 @@ export default class Cell extends React.Component<CellProps, CellState> {
     return (
       <td
         onDoubleClick={e => this.onDoubleClick(e, field)}
-        className={`Table_Cell Table_Cell__${field}`}
+        className={`${className}_Cell ${className}_Cell__${field}`}
       >
         {value}
       </td>

@@ -21,12 +21,13 @@ interface TableRow {
 export interface RowProps {
   options: {
     icons: Icon[]
+    className: string;
   };
   rowData: TableRow;
   editCell?: Function;
   removeRow: Function;
   id: number;
-  className: string;
+  className?: string;
 }
 
 export interface TableProps {
@@ -37,7 +38,8 @@ export interface TableProps {
     removeRow: Function;
   };
   options: {
-    icons: Icon[]
+    icons: Icon[],
+    className: string;
   };
 }
 
@@ -46,6 +48,7 @@ export interface CellProps {
   field: string;
   editCell: Function;
   booleanFields: string[];
+  className?: string;
 }
 
 export interface CellState {

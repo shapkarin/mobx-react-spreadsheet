@@ -16,7 +16,8 @@ const options = {
       field: 'ask_lp',
       image: icon
     }
-  ]
+  ],
+  className: 'Table'
 };
 
 const props = { store, options };
