@@ -8,13 +8,13 @@ export interface Column {
   header: string;
 }
 
-interface TableRow {
+export interface TableRow {
   symbol: string;
   bid_lp: boolean;
-  bid: string;
+  bid: number;
   ask_lp: boolean;
-  ask: string;
-  spread: string;
+  ask: number;
+  spread: number;
   _red: boolean;
 }
 

@@ -2,12 +2,13 @@ import { observable } from 'mobx';
 
 import sample from './sample';
 import times from './times';
+import { TableRow } from './components/types';
 
-const samples: any[] = [];
+const samples: TableRow[] = [];
 times(15)(() => samples.push(sample()));
 
 class Store {
-  @observable table = samples.slice();
+  @observable table: TableRow[] = samples.slice();
   columns = [
     { field: 'symbol', header: 'Symbol' },
     { field: 'bid_lp', header: 'Bid LP' },
@@ -20,12 +21,12 @@ class Store {
   addRow = () => {
     this.table.push({
       symbol: '',
-      bid_lp: '',
-      bid: '',
-      ask_lp: '',
-      ask: '',
-      spread: '',
-      _red: false
+      bid_lp: false,
+      bid: 0,
+      ask_lp: false,
+      ask: 0,
+      spread: 0,
+      _red: false,
     });
   }
 
