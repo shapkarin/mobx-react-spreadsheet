@@ -8,7 +8,13 @@ const samples: TableRow[] = [];
 times(15)(() => samples.push(sample()));
 
 class Store {
-  @observable table: TableRow[] = samples.slice();
+  
+  constructor(data: TableRow[]) {
+    this.table = data.slice();
+  }
+  
+  @observable table: TableRow[] = [];
+
   columns = [
     { field: 'symbol', header: 'Symbol' },
     { field: 'bid_lp', header: 'Bid LP' },
@@ -35,6 +41,6 @@ class Store {
   }
 }
 
-const appStore = new Store();
+const appStore = new Store(samples);
 
 export default appStore;
