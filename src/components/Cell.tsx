@@ -1,15 +1,6 @@
 import React from 'react';
 import { CellProps, CellState } from './types';
 
-// const TD = ({children, onDoubleClick, field}) => (
-//   <td
-//     className={`Table_Cell Table_Cell__${field}`}
-//     {...onDoubleClick}
-//   >
-//     {children}
-//   </td>
-// );
-
 export default class Cell extends React.Component<CellProps, CellState> {
   constructor(props: CellProps) {
     super(props);
@@ -60,6 +51,7 @@ export default class Cell extends React.Component<CellProps, CellState> {
     const { editing } = this.state;
     const { field, value } = this.props;
 
+    // or inside the render {editing ? 'value' : 'input'}
     if (editing) {
       // TODO: <TD>childern</TD>
       return (
