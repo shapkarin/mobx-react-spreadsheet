@@ -3,6 +3,7 @@ import Row from './Row';
 import { observer } from 'mobx-react';
 import { TableProps } from './types';
 
+//you can use stateless component https://mobx.js.org/refguide/observer-component.html
 @observer
 export default class Table extends React.Component<TableProps> {
 
