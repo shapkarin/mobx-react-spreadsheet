@@ -14,7 +14,6 @@ export default class Table extends React.Component<TableProps> {
       <table className="Table">
         <thead>
           <tr>
-          {/*TODO: one map for columns and tabe*/}
           {store.columns.map((item) => (
               <th className="Table_Cell">{item.header}</th>
           ))}
