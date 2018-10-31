@@ -14,8 +14,7 @@ export default class Row extends React.Component<RowProps> {
   icons: Icon[];
   fields: string[];
 
-  determineDisplay = (options) => {
-    const { value, field } = options;
+  determineDisplay = (value, field) => {
     const index = this.fields.indexOf(field);
 
     if (index !== -1) {
@@ -38,7 +37,7 @@ export default class Row extends React.Component<RowProps> {
     for (let key in this.props.rowData) {
       // not reusable
       if (key !== '_red') {
-        value = this.determineDisplay({value: this.props.rowData[key], field: key});
+        value = this.determineDisplay(this.props.rowData[key], key);
         result.push(
           <Cell
             editCell={this.editCell}
