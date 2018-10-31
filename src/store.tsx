@@ -8,11 +8,6 @@ const samples: TableRow[] = [];
 times(15)(() => samples.push(sample()));
 
 class Store {
-  
-  constructor(data: TableRow[]) {
-    this.table = data.slice();
-  }
-  
   @observable table: TableRow[] = [];
 
   columns = [
@@ -23,6 +18,9 @@ class Store {
     { field: 'ask', header: 'Ask' },
     { field: 'spread', header: 'Spread' }
   ];
+  constructor(data: TableRow[]) {
+    this.table = data.slice();
+  }
 
   addRow = () => {
     this.table.push({

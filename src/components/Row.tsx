@@ -5,15 +5,14 @@ import { RowProps, Icon } from './types';
 
 @observer
 export default class Row extends React.Component<RowProps> {
+  icons: Icon[];
+  fields: string[];
+
   constructor(props: RowProps) {
     super(props);
     this.icons = this.props.options.icons;
     this.fields = this.icons.map(item => item.field);
   }
-  
-  icons: Icon[];
-  fields: string[];
-
   determineDisplay = (value, field) => {
     const index = this.fields.indexOf(field);
 
