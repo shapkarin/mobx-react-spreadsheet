@@ -29,8 +29,7 @@ const Table = observer(({ store, options }) => {
       ))}
       </tbody>
     </table>
-  );
-      }
-      );
+  );  
+});
 
 export default Table;
