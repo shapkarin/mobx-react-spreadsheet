@@ -10,6 +10,7 @@ times(15)(() => samples.push(sample()));
 class Store {
   @observable table: TableRow[] = [];
 
+  // you can manage columns like this https://codesandbox.io/s/4jxqz1y774
   columns = [
     { field: 'symbol', header: 'Symbol' },
     { field: 'bid_lp', header: 'Bid LP' },
